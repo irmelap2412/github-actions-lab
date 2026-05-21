@@ -1,0 +1,22 @@
+name: Sa Kesom
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Postavi Node.js s kesom
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          
+      - name: Instaliraj zavisnosti
+        run: npm ci
+        
+      - name: Pokreni testove
+        run: npm test
+    
