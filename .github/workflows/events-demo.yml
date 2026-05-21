@@ -1,0 +1,33 @@
+name: Demo Eventa
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+    paths:
+      - "src/**"
+      - "*.md"
+
+  pull_request:
+    types: [opened, synchronize, closed]
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      poruka:
+        description: "Unesite poruku"
+        required: true
+        default: "Ručno pokretanje"
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ispisi informacije o eventu
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Grana: ${{ github.ref }}"
+          echo "Korisnik: ${{ github.actor }}"
+          echo "Commit: ${{ github.sha }}"

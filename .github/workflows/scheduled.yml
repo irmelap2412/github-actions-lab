@@ -1,0 +1,16 @@
+name: Zakazani Posao
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  jutarnji-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Jutarnji report
+        run: |
+          echo "Jutarnji automatski report"
+          echo "Datum: $(date)"
+          echo "Ovo se pokrece svaki radni dan u 8:00 UTC"
