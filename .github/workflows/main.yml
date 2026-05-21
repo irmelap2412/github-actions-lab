@@ -1,18 +1,25 @@
 name: Moj Prvi Workflow
+
 on:
-push:
-branches: [ &quot;main&quot; ]
-pull_request:
-branches: [ &quot;main&quot; ]
+  push:
+    branches: ["main"]
+
+  pull_request:
+    branches: ["main"]
+
 jobs:
-pozdrav:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout koda
-uses: actions/checkout@v4
-- name: Ispisi pozdrav
-run: echo &quot;Zdravo iz GitHub Actions!&quot;
-- name: Pokazi datum i vrijeme
-run: date
-- name: Pokazi strukturu fajlova
-run: ls -la
+  pozdrav:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout koda
+        uses: actions/checkout@v4
+
+      - name: Ispisi pozdrav
+        run: echo "Zdravo iz GitHub Actions!"
+
+      - name: Pokazi datum i vrijeme
+        run: date
+
+      - name: Pokazi strukturu fajlova
+        run: ls -la
